@@ -41,7 +41,7 @@ const TestButton: React.FC = () => {
             api: api,
             type: "info",
             message: "info!",
-            description: "This is info Description. please check this button",
+            description: "This is info Description. please check",
           })
         }
       >
