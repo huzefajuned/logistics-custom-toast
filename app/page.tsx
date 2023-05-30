@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "antd";
-import Toast from "./components/Toast/Toast";
+import Toast from "./components/Buttons/TestButton";
 export default function Home() {
   return (
     <>
