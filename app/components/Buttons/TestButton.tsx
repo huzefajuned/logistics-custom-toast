@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, notification } from "antd";
-
-import OpenToast from "../Toast/OpenToast";
+import { Button } from "antd";
+import { Toast } from "../Check/Toast";
 
 const TestButton: React.FC = () => {
   const [mounted, setMounted] = useState<boolean>(false);
@@ -10,56 +9,63 @@ const TestButton: React.FC = () => {
     setMounted(true);
   }, []);
 
-  const [api, contextHolder] = notification.useNotification();
-
   if (!mounted) {
     return null;
   }
   return (
     <div className="w-full h-screen  flex flex-row justify-center items-center text-center ">
-      {contextHolder}
       <Button
         type="default"
         className="bg-green-400"
         onClick={() =>
-          OpenToast({
-            api: api,
+          Toast({
+            type: "info",
+            message: "Info !",
+            description: "This is Info Description. please check this button",
+          })
+        }
+      >
+        Info
+      </Button>
+      <Button
+        type="default"
+        className="bg-blue-800 m-10"
+        onClick={() =>
+          Toast({
             type: "success",
-            message: "Success!",
+            message: "Success !",
             description:
               "This is Success Description. please check this button",
           })
         }
       >
-        success
-      </Button>
-      <Button
-        type="default"
-        className="bg-blue-400 m-10"
-        onClick={() =>
-          OpenToast({
-            api: api,
-            type: "info",
-            message: "info!",
-            description: "This is info Description. please check",
-          })
-        }
-      >
-        info
+        Success
       </Button>{" "}
       <Button
         type="default"
-        className="bg-red-400"
+        className="bg-red-400 "
         onClick={() =>
-          OpenToast({
-            api: api,
+          Toast({
             type: "error",
-            message: "Error!",
+            message: "Error !",
             description: "This is Error Description. please check this button",
           })
         }
       >
-        error
+        Error
+      </Button>
+      <Button
+        type="default"
+        className="bg-red-400 ml-5"
+        onClick={() =>
+          Toast({
+            type: "info",
+            message: "Info !",
+            description: "This is Info Description.please check this button",
+          })
+        }
+      >
+        Info
       </Button>
     </div>
   );
